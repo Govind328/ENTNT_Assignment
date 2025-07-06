@@ -27,29 +27,6 @@ const Login = () => {
     }
   };
 
-//   const onSubmit = (e) => {
-//   e.preventDefault();
-
-//   // Assume you're checking against hardcoded users:
-//   const users = JSON.parse(localStorage.getItem("users") || "[]");
-//   const user = users.find(
-//     (u) => u.email === email && u.password === password
-//   );
-
-//   if (user) {
-//     // Save session
-//     localStorage.setItem("session", JSON.stringify(user));
-
-//     // 👇 Redirect based on role
-//     if (user.role === "Admin") {
-//       navigate("/admin/dashboard");
-//     } else if (user.role === "Patient") {
-//       navigate("/patient/dashboard");
-//     }
-//   } else {
-//     alert("Invalid credentials");
-//   }
-// };
 
   return (
     <div className="flex items-center justify-center min-h-screen bg-gray-100 px-4">

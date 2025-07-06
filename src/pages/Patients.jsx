@@ -8,13 +8,11 @@ const Patients = () => {
   const [patients, setPatients] = useState([]);
   const [editingPatient, setEditingPatient] = useState(null);
 
-  // Load patients from localStorage
   useEffect(() => {
     const data = JSON.parse(localStorage.getItem(PATIENT_KEY)) || [];
     setPatients(data);
   }, []);
 
-  // Save patients to localStorage
   const savePatients = (newList) => {
     localStorage.setItem(PATIENT_KEY, JSON.stringify(newList));
     setPatients(newList);

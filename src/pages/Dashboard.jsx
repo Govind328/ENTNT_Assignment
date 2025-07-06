@@ -1,13 +1,3 @@
-// const Dashboard = () => {
-//   return (
-//     <div className="p-6">
-//       <h1 className="text-2xl font-bold">Admin Dashboard</h1>
-//       <p className="mt-2">Welcome, Doctor! This is your dashboard.</p>
-//     </div>
-//   );
-// };
-
-// export default Dashboard;
 
 import { useEffect, useState } from "react";
 import { getFromLocalStorage } from "../utils/storage";
@@ -24,13 +14,11 @@ const Dashboard = () => {
     const incidents = getFromLocalStorage("incidents") || [];
     const patients = getFromLocalStorage("patients") || [];
 
-    // Total Revenue
     const total = incidents
       .filter((i) => i.status === "Completed")
       .reduce((acc, curr) => acc + (curr.cost || 0), 0);
     setRevenue(total);
 
-    // Upcoming Appointments
     const now = new Date();
     const upcoming = incidents
       .filter((i) => new Date(i.appointmentDate) > now)
@@ -38,11 +26,9 @@ const Dashboard = () => {
       .slice(0, 10);
     setAppointments(upcoming);
 
-    // Completed / Pending Count
     setCompleted(incidents.filter((i) => i.status === "Completed").length);
     setPending(incidents.filter((i) => i.status === "Pending").length);
 
-    // Top Patients by visit count
     const patientMap = {};
     for (let i of incidents) {
       patientMap[i.patientId] = (patientMap[i.patientId] || 0) + 1;
